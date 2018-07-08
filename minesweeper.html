@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" type="text/css" href="minesweeper.css">
+</head>
+
+<body>
+
+    <div id="mineSweeper">
+        <table>
+            <tbody class="field"></tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="minesweeper.js"></script>
+    <script type="text/javascript">
+        var mine = new MineSweeper('#mineSweeper');
+        mine.init();
+    </script>
+
+</body>
+
+</html>

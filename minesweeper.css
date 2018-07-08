@@ -1,0 +1,62 @@
+html,
+body,
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#mineSweeper {
+    width: 100%;
+}
+
+#mineSweeper table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#mineSweeper table td {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    border: solid 1px #000;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+span.mine {
+    color: #24D3FD;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+span.count1 {
+    color: blue;
+}
+
+span.count2 {
+    color: green;
+}
+
+span.count3 {
+    color: red;
+}
+
+span.count4 {
+    color: navy;
+}
+
+span.count5 {
+    color: maroon;
+}
+
+span.count6 {
+    color: teal;
+}
+
+span.count7 {
+    color: black;
+}
+
+span.count8 {
+    color: gray;
+}
