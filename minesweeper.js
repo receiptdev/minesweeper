@@ -16,10 +16,10 @@ MineSweeper.prototype = {
         this.renderFields();
     },
     setFields: function(fieldSize) {
-        for (var i = 0; i < fieldSize; i++) {
-            this.mineArray[i] = new Array(fieldSize);
-            for (var j = 0; j < this.mineArray[i].length; j++) {
-                this.mineArray[i][j] = this.safe;
+        for (var row = 0; row < fieldSize; row++) {
+            this.mineArray[row] = new Array(fieldSize);
+            for (var col = 0; col < this.mineArray[row].length; col++) {
+                this.mineArray[row][col] = this.safe;
             }
         }
     },
