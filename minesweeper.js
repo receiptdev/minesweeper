@@ -1,19 +1,25 @@
-function MineSweeper(element) {
+function mineSweeper(element) {
     this.container = document.querySelector(element);
     this.mineField = this.container.querySelector(".field");
     this.fieldSize = 10;
     this.mineCount = 10;
+    this.mineCountFinal = 0;
     this.mine = "M";
     this.safe = 0;
     this.mineArray = new Array();
 }
 
-MineSweeper.prototype = {
+mineSweeper.prototype = {
     init: function() {
         this.setFields(this.fieldSize);
         this.setMine(this.mineCount);
         this.getMineNumber();
         this.renderFields();
+
+        if (this.mineCount !== this.mineCountFinal) {
+            this.mineCountFinal = 0;
+            this.init();
+        }
     },
     setFields: function(fieldSize) {
         for (var row = 0; row < fieldSize; row++) {
@@ -71,6 +77,7 @@ MineSweeper.prototype = {
 
                 if (mineTypes === this.mine) {
                     mineTypes = "<span class='mine'>" + this.mine + "</span>";
+                    this.mineCountFinal++;
                 } else if (mineTypes === this.safe) {
                     mineTypes = " ";
                 } else {
