@@ -22,16 +22,16 @@ mineSweeper.prototype = {
         }
     },
     setFields: function(fieldSize) {
-        for (var row = 0; row < fieldSize; row++) {
+        for (let row = 0; row < fieldSize; row++) {
             this.mineArray[row] = new Array(fieldSize);
-            for (var col = 0; col < this.mineArray[row].length; col++) {
+            for (let col = 0; col < this.mineArray[row].length; col++) {
                 this.mineArray[row][col] = this.safe;
             }
         }
     },
     setMine: function(mineCount) {
-        var row;
-        var col;
+        let row;
+        let col;
 
         while (mineCount-- > 0) {
             row = parseInt(Math.random() * this.fieldSize);
@@ -43,8 +43,8 @@ mineSweeper.prototype = {
         }
     },
     getMine: function(i, j) {
-        for (var row = i - 1; row <= i + 1; row++) {
-            for (var col = j - 1; col <= j + 1; col++) {
+        for (let row = i - 1; row <= i + 1; row++) {
+            for (let col = j - 1; col <= j + 1; col++) {
                 if (
                     row >= 0 &&
                     row < this.fieldSize &&
@@ -58,8 +58,8 @@ mineSweeper.prototype = {
         }
     },
     getMineNumber: function() {
-        for (var row = 0; row < this.fieldSize; row++) {
-            for (var col = 0; col < this.fieldSize; col++) {
+        for (let row = 0; row < this.fieldSize; row++) {
+            for (let col = 0; col < this.fieldSize; col++) {
                 if (this.mineArray[row][col] === this.mine) {
                     this.getMine(row, col);
                 }
@@ -67,31 +67,26 @@ mineSweeper.prototype = {
         }
     },
     renderFields: function() {
-        var fields = "";
-        var mineTypes;
+        let fields = "";
+        let mineTypes = "";
 
-        for (var row = 0; row < this.fieldSize; row++) {
-            fields += "<tr>";
-            for (var col = 0; col < this.mineArray[row].length; col++) {
+        for (let row = 0; row < this.fieldSize; row++) {
+            fields += `<tr>`;
+            for (let col = 0; col < this.mineArray[row].length; col++) {
                 mineTypes = this.mineArray[row][col];
 
                 if (mineTypes === this.mine) {
-                    mineTypes = "<span class='mine'>" + this.mine + "</span>";
+                    mineTypes = `<span class='mine'>${this.mine}</span>`;
                     this.mineCountFinal++;
                 } else if (mineTypes === this.safe) {
-                    mineTypes = " ";
+                    mineTypes = ` `;
                 } else {
-                    mineTypes =
-                        "<span class='count" +
-                        mineTypes +
-                        "'>" +
-                        mineTypes +
-                        "</span>";
+                    mineTypes = `<span class='count${mineTypes}'>${mineTypes}</span>`;
                 }
 
-                fields += "<td>" + mineTypes + "</td>";
+                fields += `<td>${mineTypes}</td>`;
             }
-            fields += "</tr>";
+            fields += `</tr>`;
         }
         this.mineField.innerHTML = fields;
     }
